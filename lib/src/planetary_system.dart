@@ -3,14 +3,15 @@ import 'planet.dart';
 class PlanetarySystem {
 
   // Instance variable
-  String name;
+  final String name;
   
-  List<Planet> planets;
+  // Dynamic array of Planet objects
+  final List<Planet> planets;
 
   // Constructor with inline initializing formal
-  // [] optional, or {} named parameter
   PlanetarySystem({this.name = 'Unnamed System', this.planets = const[] });
 
+  // Get function returns number of planets. Uses arrow syntax.
   int get numberOfPlanets => planets.length;
 
 }
