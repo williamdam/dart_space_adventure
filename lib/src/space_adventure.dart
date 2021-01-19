@@ -39,11 +39,17 @@ class SpaceAdventure {
     );
   }
 
-  void travelTo(String planetName) {
-    print(
-      'Traveling to $planetName...\n'
-      'Arrived at $planetName. A very cold planet, furthest from the sun.'
-    );
+  void travelTo(String destination) {
+    print('Traveling to $destination...\n');
+
+    // .forEach takes func literal argument (planet) {}
+    planetarySystem.planets.forEach( (planet) {
+      if (planet.name == destination) {
+        print('Arrived at ${planet.name}.  ${planet.description}');
+      }
+
+    });
+    
   }
 
   void travel(bool randomDestination) {
