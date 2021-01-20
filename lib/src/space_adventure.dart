@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 import 'planetary_system.dart';
 
 class SpaceAdventure {
@@ -32,11 +33,11 @@ class SpaceAdventure {
     return stdin.readLineSync();
   }
 
-  void travelToRandomPlanet() {
-    print(
-      'Ok! Traveling to Mercury.\n'
-      'Arrived at Mercury. A very hot planet, closest to the sun.'
-    );
+  void travelToRandomDestination() {
+    
+    // Get random number 0...last element
+    final index = Random().nextInt(planetarySystem.numberOfPlanets);
+    travelTo(planetarySystem.planets[index].name);
   }
 
   void travelTo(String destination) {
@@ -54,7 +55,7 @@ class SpaceAdventure {
 
   void travel(bool randomDestination) {
     if (randomDestination) {
-      travelToRandomPlanet();
+      travelToRandomDestination();
     } else {
       travelTo(responseToPrompt('Name the planet you would like to visit.'));
     }
