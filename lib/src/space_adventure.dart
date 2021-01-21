@@ -39,13 +39,11 @@ class SpaceAdventure {
     return stdin.readLineSync();
   }
 
-  void travelToRandomDestination() {
-    
-    if (!planetarySystem.hasPlanets) return;
+  void travelToPlanet(Planet planet) {
 
-    // Get random number 0...last element
-    final index = Random().nextInt(planetarySystem.numberOfPlanets);
-    travelTo(planetarySystem.planets[index].name);
+    print('Traveling to ${planet.name}');
+    print('Arrived at ${planet.name}. ${planet.description}');
+
   }
 
   void travelTo(String destination) {
@@ -63,7 +61,7 @@ class SpaceAdventure {
 
   void travel(bool randomDestination) {
     if (randomDestination) {
-      travelToRandomDestination();
+      travelToPlanet(planetarySystem.randomPlanet());
     } else {
       travelTo(responseToPrompt('Name the planet you would like to visit.'));
     }

@@ -1,6 +1,10 @@
+import ['dart:math'];
 import 'planet.dart';
 
 class PlanetarySystem {
+
+  // Instantiate random number
+  final Random _random = Random();
 
   // Instance variable
   final String name;
@@ -16,6 +20,11 @@ class PlanetarySystem {
 
   // Get function returns bool true if there are planets
   bool get hasPlanets => planets.isNotEmpty;
-  
+
+  // Return random planet
+  Planet randomPlanet() {
+    if (!hasPlanets) return Planet.nullPlanet();
+    return planets[_random.nextInt(planets.length)];
+  }
 }
 
