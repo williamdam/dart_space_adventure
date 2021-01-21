@@ -14,5 +14,8 @@ class PlanetarySystem {
   // Get function returns number of planets. Uses arrow syntax.
   int get numberOfPlanets => planets.length;
 
+  // Get function returns bool true if there are planets
+  bool get hasPlanets => planets.isNotEmpty;
+  
 }
 

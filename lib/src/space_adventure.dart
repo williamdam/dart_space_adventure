@@ -12,10 +12,16 @@ class SpaceAdventure {
     printGreeting();
     printIntroduction(responseToPrompt('What is your name?'));
     print('Let\'s go on an adventure!\n');
-    travel(promptForRandomOrSpecificDestination(
+
+    if (planetarySystem.hasPlanets) {
+      travel(promptForRandomOrSpecificDestination(
       'Shall I randomly choose a planet for you to visit? (Y or N)'
       )
     );
+    } else {
+      print('Aw, there are no planets to explore.');
+    }
+    
   }
 
   void printGreeting() {
@@ -35,6 +41,8 @@ class SpaceAdventure {
 
   void travelToRandomDestination() {
     
+    if (!planetarySystem.hasPlanets) return;
+
     // Get random number 0...last element
     final index = Random().nextInt(planetarySystem.numberOfPlanets);
     travelTo(planetarySystem.planets[index].name);
