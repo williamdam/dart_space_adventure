@@ -26,7 +26,6 @@ class SpaceAdventure {
 
   void printGreeting() {
     print('Welcome to the ${planetarySystem.name}.');
-    print('Welcome to the Solar System!');
     print('There are ${planetarySystem.numberOfPlanets} planets to explore.');
   }
 
