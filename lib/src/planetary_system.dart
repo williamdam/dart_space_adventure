@@ -5,10 +5,8 @@ class PlanetarySystem {
 
   // Instantiate random number
   final Random _random = Random();
-
   // Instance variable
   final String name;
-  
   // Dynamic array of Planet objects
   final List<Planet> planets;
 

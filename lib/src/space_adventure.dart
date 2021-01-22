@@ -11,7 +11,7 @@ class SpaceAdventure {
   void start() {
     printGreeting();
     printIntroduction(responseToPrompt('What is your name?'));
-    print('Let\'s go on an adventure!\n');
+    print('Let\'s go on an adventure!');
 
     if (planetarySystem.hasPlanets) {
       travel(promptForRandomOrSpecificDestination(
