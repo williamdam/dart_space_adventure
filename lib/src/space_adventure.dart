@@ -40,14 +40,31 @@ class SpaceAdventure {
 
   void travel(bool randomDestination) {
     Planet planet;
+
+    var planetExists = false;
+
     if (randomDestination) {
       planet = planetarySystem.randomPlanet();
     } else {
-      planet = planetarySystem.planetWithName(
-        responseToPrompt('Name the planet you would like to visit.')
-      );
+      while (planetExists != true) {
+        planet = planetarySystem.planetWithName(
+          responseToPrompt('Name the planet you would like to visit.')
+        );
+        if (checkPlanetExists(planet) == false) {
+          print('Planet doesn\'t exist.  Enter another planet name.');
+        } else {
+          planetExists = true;
+        }
+      }
     }
     travelTo(planet);
+  }
+
+  bool checkPlanetExists(Planet planet) {
+    if (planet.name == 'Null' && planet.description == 'Null') {
+      return false;
+    }
+    return true;
   }
 
   void travelTo(Planet planet) {
