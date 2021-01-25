@@ -26,15 +26,15 @@ class SpaceAdventure {
     
   }
 
+  // Print greeting with user's name
+  void printIntroduction(String name) {
+    print('Nice to meet you, $name. My name is Eliza, I\'m an old friend of Alexa.');
+  }
+  
   // Print greeting with planetary system name and number of planets
   void printGreeting() {
     print('Welcome to the ${planetarySystem.name}.');
     print('There are ${planetarySystem.numberOfPlanets} planets to explore.');
-  }
-
-  // Print greeting with user's name
-  void printIntroduction(String name) {
-    print('Nice to meet you, $name. My name is Eliza, I\'m an old friend of Alexa.');
   }
 
   // Returns user input, after printing prompt from arg
