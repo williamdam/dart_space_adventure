@@ -6,32 +6,32 @@ import 'package:dart_space_adventure/dart_space_adventure.dart';
 List<dynamic> planetData;
 void main(List<String> arguments) {
 
+  // Check program start command for arguments
   if (arguments.isNotEmpty) {
-    // Read in json file passed as arg, to string
+
+    // The json planet data converted to string
     final jsonString = File(arguments[0]).readAsStringSync();
 
-    // Get planetary system name from json
+    // The name of the planetary system, from planet data
     final systemName = jsonDecode(jsonString)['name'];
   
-    // Get list of planets from json
+    // The planet data converted to json
     planetData = jsonDecode(jsonString)['planets'];
 
-    // Instantiate SpaceAdventure object with data, and call start()
+    // Starts space adventure program
     SpaceAdventure(
       planetarySystem: PlanetarySystem(
         name: systemName, 
         planets: getPlanets()
         )
       ).start();
-  }
-
-  else {
-    print('Error: You must enter a json file arg (e.g. bin/data.json)');
+  } else {
+    print('Error: You must provide planet data (e.g. bin/data.json)');
   }
   
 }
 
-// Build list of planet objects from key-value pairs, using map function
+// The list of planet objects, mapped from planet data
 List<Planet> getPlanets() {
   // Map key-value pairs to Planet objects
   // Returns as iterable, use .toList() to convert to list
